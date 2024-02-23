@@ -40,9 +40,14 @@ resource "aws_instance" "my_instances" {
   }
 }
 
-
-# IAM User creation using for_each (set of strings)
-resource "aws_iam_user" "iamuser" {
-  for_each = toset(["deeppp", "kamal", "nanu"])
-  name     = each.key
+### iam user create by for_each map
+variable "iam_users" {
+  type = map
+  default = {
+    "deeppp" = {}
+    "kamal" = {}
+    "nanu" = {}
+  }
 }
+
+
