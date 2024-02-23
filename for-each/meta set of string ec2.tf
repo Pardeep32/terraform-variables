@@ -25,3 +25,10 @@ resource "aws_instance" "my_instances" {
     Name = each.key
   }
 }
+
+
+# IAM User creation using for_each (set of strings)
+resource "aws_iam_user" "iamuser" {
+  for_each = toset(["deeppp", "kamal", "nanu"])
+  name     = each.key
+}
