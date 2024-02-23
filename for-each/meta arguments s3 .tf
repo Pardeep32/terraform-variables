@@ -7,6 +7,9 @@ terraform {
     }
   }
 }
+variable "aws_region" {
+  default = "ca-central-1"
+}
 
 # Configure the AWS Provider
 provider "aws" {
